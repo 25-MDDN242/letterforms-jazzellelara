@@ -15,7 +15,11 @@ const sliderInfo = [
   ["c4x",  15,  85],
   ["c4y", 15, 185],
   ["c5x",  15,  85],
-  ["c5y", 15, 185]
+  ["c5y", 15, 185],
+  ["con1", 0, 1],
+  ["con2", 0, 1],
+  ["con3", 0, 1],
+  ["con4", 0, 1]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.

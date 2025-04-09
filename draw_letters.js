@@ -44,26 +44,41 @@ function drawLetter(letterData) {
   let c4y2 = letterData["c4y"]; // y coordinates of circle 4
   let c5x2 = letterData["c5x"]; // x coordinates of circle 5
   let c5y2 = letterData["c5y"]; // y coordinates of circle 5
+  let connector1 = letterData["con1"]; // toggle for connector 1
+  let connector2 = letterData["con2"]; // toggle for connector 2
+  let connector3 = letterData["con3"]; // toggle for connector 3
+  let connector4 = letterData["con4"]; // toggle for connector 4
+
   //more variables... toggle for connectors
 
-  // large or small circle
+  //------------ Large/Small Circle ----------
+  // when finished designing switch circle element to top layer
   fill(red);
   ellipse(c1x2, c1y2, c1size2, c1size2);//circle 1
 
-  // circle 2-3 connector 
-  //fill(yellow);
-  //drawConnector(c1x2, c1y2, c2x2, c2y2); 
-  // circle 2-3 connector 
-  fill(green);
-  drawConnector(c2x2, c2y2, c3x2, c3y2);
-  // circle 3-4 connector 
-  fill(blue);
-  drawConnector(c3x2, c3y2, c4x2, c4y2);
-  // circle 4-5 connector 
-  fill(purple);
-  drawConnector(c4x2, c4y2, c5x2, c5y2);
+  //------------ Connectors ----------
+  //Connector 1 - circle 2-3 
+  if (connector1 > 0){ 
+    fill(yellow);
+    drawConnector(c1x2, c1y2, c2x2, c2y2); 
+  }
+  // Connector 2 - circle 2-3  
+  if (connector2 > 0){ 
+    fill(green);
+    drawConnector(c2x2, c2y2, c3x2, c3y2);
+  }
+  // Connector 3 - circle 3-4  
+  if (connector3 > 0){ 
+    fill(blue);
+    drawConnector(c3x2, c3y2, c4x2, c4y2);
+  }
+  // Connector 4 - circle 4-5  
+  if (connector4 > 0){ 
+    fill(purple);
+    drawConnector(c4x2, c4y2, c5x2, c5y2);
+  }
 
-  // small circles 
+  //------------ Small Circles ----------
   fill(yellow);
   ellipse(c2x2, c2y2, 30, 30);//circle 2
   fill(green);
@@ -101,9 +116,6 @@ function drawLetter(letterData) {
     // ellipse(60, 70, 30, 30);//circle 4
     // fill(purple);
     // ellipse(20, 100, 30, 30);//circle 5
-
-
-
 
 }
 
@@ -159,9 +171,27 @@ function drawConnector(startCircleX, startCircleY, endCircleX, endCircleY) { //d
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["c1size"]    = map(percent, 0, 100, oldObj["c1size"], newObj["c1size"]);
+
+  new_letter["c1x"] = map(percent, 0, 100, oldObj["c1x"], newObj["c1x"]);
+  new_letter["c1y"] = map(percent, 0, 100, oldObj["c1y"], newObj["c1y"]);
+
+  new_letter["c2x"] = map(percent, 0, 100, oldObj["c2x"], newObj["c2x"]);
+  new_letter["c2y"] = map(percent, 0, 100, oldObj["c2y"], newObj["c2y"]);
+
+  new_letter["c3x"] = map(percent, 0, 100, oldObj["c3x"], newObj["c3x"]);
+  new_letter["c3y"] = map(percent, 0, 100, oldObj["c3y"], newObj["c3y"]);
+
+  new_letter["c4x"] = map(percent, 0, 100, oldObj["c4x"], newObj["c4x"]);
+  new_letter["c4y"] = map(percent, 0, 100, oldObj["c4y"], newObj["c4y"]);
+
+  new_letter["c5x"] = map(percent, 0, 100, oldObj["c5x"], newObj["c5x"]);
+  new_letter["c5y"] = map(percent, 0, 100, oldObj["c5y"], newObj["c5y"]);
+
+  new_letter["con1"] = map(percent, 0, 100, oldObj["con1"], newObj["con1"]);
+  new_letter["con2"] = map(percent, 0, 100, oldObj["con2"], newObj["con2"]);
+  new_letter["con3"] = map(percent, 0, 100, oldObj["con3"], newObj["con3"]);
+  new_letter["con4"] = map(percent, 0, 100, oldObj["con4"], newObj["con4"]);
   return new_letter;
 }
 
