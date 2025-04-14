@@ -14,12 +14,29 @@ const alphabet = {
     "con1": 1,
     "con2": 1,
     "con3": 1,
-    "con4": 1
+    "con4": 1,
+    "con5": 0,
+    "con6": 0
   },
 
-    // NOTE: For circle 1 to be in middle when 70px coordinates are 50/150. Other circles are 50/130
+    // NOTE 1: For circle 1 to be in middle when 70px coordinates are 50/150. Other circles are 50/130
 
     // NOTE 2: When translating coordinates over, add 35 to each for large circle and 15 to each for small
+
+    //NOTE 3:  Circle Reference
+    //Circle 1 - Red
+    //Circle 2 - Yellow
+    //Circle 3 - Green
+    //Circle 4 - Blue
+    //Circle 5 - Purple
+
+    //NOTE 4:  Connector Reference
+    //Connector 1 - C1-C2
+    //Connector 2 - C2-C3
+    //Connector 3 - C3-C4
+    //Connector 4 - C4-C5
+    //Connector 5 - C2-C4
+    //Connector 6 - C2-C5
 
   "A": {
     "c1size": 70,
@@ -36,7 +53,9 @@ const alphabet = {
     "con1": 1,
     "con2": 1,
     "con3": 1,
-    "con4": 1
+    "con4": 1,
+    "con5": 0,
+    "con6": 0
   },
   "B": {
     "c1size": 70,
@@ -53,34 +72,66 @@ const alphabet = {
     "con1": 1,
     "con2": 1,
     "con3": 1,
-    "con4": 1
+    "con4": 1,
+    "con5": 0,
+    "con6": 0
   },
   "C": {
     "c1size": 30,
     "c1x": 85,
-    "c1y": 80,
+    "c1y": 65,
     "c2x": 45,
-    "c2y": 80,
+    "c2y": 65,
     "c3x": 15,
-    "c3y": 108,
+    "c3y": 100,
     "c4x": 45,
     "c4y": 135,
     "c5x": 85,
     "c5y": 135,
-    "con1": 0,
-    "con2": 0,
+    "con1": 1,
+    "con2": 1,
     "con3": 1,
-    "con4": 1
+    "con4": 1,
+    "con5": 0,
+    "con6": 0
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "c1size": 70,
+    "c1x": 50,
+    "c1y": 115,
+    "c2x": 60,
+    "c2y": 100,
+    "c3x": 60,
+    "c3y": 100,
+    "c4x": 70,
+    "c4y": 65,
+    "c5x": 70,
+    "c5y": 25,
+    "con1": 1,
+    "con2": 1,
+    "con3": 1,
+    "con4": 1,
+    "con5": 0,
+    "con6": 0
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "c1size": 30,
+    "c1x": 50,
+    "c1y": 135,
+    "c2x": 15,
+    "c2y": 100,
+    "c3x": 30,
+    "c3y": 65,
+    "c4x": 70,
+    "c4y": 65,
+    "c5x": 85,
+    "c5y": 100,
+    "con1": 1,
+    "con2": 1,
+    "con3": 1,
+    "con4": 1,
+    "con5": 0,
+    "con6": 1
   },
   "F": {
     "size": 50,

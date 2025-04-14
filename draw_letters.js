@@ -44,10 +44,12 @@ function drawLetter(letterData) {
   let c4y2 = letterData["c4y"]; // y coordinates of circle 4
   let c5x2 = letterData["c5x"]; // x coordinates of circle 5
   let c5y2 = letterData["c5y"]; // y coordinates of circle 5
-  let connector1 = letterData["con1"]; // toggle for connector 1
-  let connector2 = letterData["con2"]; // toggle for connector 2
-  let connector3 = letterData["con3"]; // toggle for connector 3
-  let connector4 = letterData["con4"]; // toggle for connector 4
+  let connector1 = letterData["con1"]; // toggle for connector 1 (c1-c2)
+  let connector2 = letterData["con2"]; // toggle for connector 2 (c2-c3)
+  let connector3 = letterData["con3"]; // toggle for connector 3 (c3-c4)
+  let connector4 = letterData["con4"]; // toggle for connector 4 (c4-c5)
+  let connector5 = letterData["con5"]; // toggle for connector 5 (c2-c4)
+  let connector6 = letterData["con6"]; // toggle for connector 6 (c2-c5)
 
   //more variables... toggle for connectors
 
@@ -57,7 +59,7 @@ function drawLetter(letterData) {
   ellipse(c1x2, c1y2, c1size2, c1size2);//circle 1
 
   //------------ Connectors ----------
-  //Connector 1 - circle 2-3 
+  //Connector 1 - circle 1-2 
   if (connector1 > 0){ 
     fill(yellow);
     drawConnector(c1x2, c1y2, c2x2, c2y2); 
@@ -76,6 +78,16 @@ function drawLetter(letterData) {
   if (connector4 > 0){ 
     fill(purple);
     drawConnector(c4x2, c4y2, c5x2, c5y2);
+  }
+  // Connector 5 - circle 2-4  
+  if (connector5 > 0){ 
+    fill(purple);
+    drawConnector(c2x2, c2y2, c4x2, c4y2);
+  }
+  // Connector 6 - circle 2-5  
+  if (connector6 > 0){ 
+    fill(purple);
+    drawConnector(c2x2, c2y2, c5x2, c5y2);
   }
 
   //------------ Small Circles ----------
