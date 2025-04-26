@@ -51,13 +51,6 @@ function drawLetter(letterData) {
   let connector5 = letterData["con5"]; // toggle for connector 5 (c2-c4)
   let connector6 = letterData["con6"]; // toggle for connector 6 (c2-c5)
 
-  //more variables... toggle for connectors
-
-  //------------ Large/Small Circle ----------
-  // when finished designing switch circle element to top layer
-  fill(red);
-  ellipse(c1x2, c1y2, c1size2, c1size2);//circle 1
-
   //------------ Connectors ----------
   //Connector 1 - circle 1-2 
   if (connector1 > 0){ 
@@ -99,6 +92,11 @@ function drawLetter(letterData) {
   ellipse(c4x2, c4y2, 30, 30);//circle 4
   fill(purple);
   ellipse(c5x2, c5y2, 30, 30);//circle 5
+
+  //------------ Large/Small Circle ----------
+  //to debug design switch circle element to bottom layer
+  fill(red);
+  ellipse(c1x2, c1y2, c1size2, c1size2);//circle 1
 
   //------------------------------ TEST VALUES ----------------------------
   //for when I am suspicious variables aren't working
