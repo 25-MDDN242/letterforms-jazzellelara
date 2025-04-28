@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#82c8e5";
+var systemBackgroundColor = "#c7eaff";
 var systemLineColor = "#000090";
 var systemBoxColor = "#C73869";
 
@@ -14,23 +14,29 @@ var systemBoxColor = "#C73869";
 //-------------------------------- Colours ----------------------------
 const white  = "#ffffff";
 const transparent  = "#ffffff00";
-const pink  = "#ffaaee";
-const strokeColor  = "#000000";
+const pink  = "#ffc7f3";
 const red  = "#FFADAD";
 const yellow  = "#FDFFB6";
-const green  = "#CAFFBF";
-const blue  = "#9BF6FF";
+const green  = "#c7ffeb";
+const blue  = "#CCE7F7";
 const purple  = "#BDB2FF";
 const connectorColour = "#6796CD";
 
+const whiteST  = "#ffffff95"; //ST stands for semi transparent
+const pinkST  = "#ffc7f395";
+const blueST  = "#CCE7F795";
 
+const whiteT  = "#ffffff50"; //T stands for transparent
+const pinkT  = "#ffc7f350";
+const greenT  = "#c7ffeb50";
+const blueT  = "#CCE7F750";
 
 //------------------------------ Main Function ----------------------------
 function drawLetter(letterData) {
   angleMode(DEGREES)
   
   // setup stroke
-  stroke(strokeColor);
+  stroke(white);
   strokeWeight(0);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Variable Setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,13 +122,29 @@ function drawLetter(letterData) {
   function drawBubble(circleX, circleY, circleDiameter){
     push()
 
-    // linearGradient(circleX, circleY, white, pink, circleDiameter);
-    // ellipse(circleX, circleY, circleDiameter, circleDiameter);
+    push()
+    strokeWeight(circleDiameter/10);
+    stroke(whiteST);
+    noFill()
+    ellipse(circleX, circleY, circleDiameter, circleDiameter);
+
+    strokeWeight(circleDiameter/5);
+    conicGradientStroke(0, circleX, circleY, [whiteT, pinkT, blueT, greenT])
+    ellipse(circleX, circleY, circleDiameter, circleDiameter);
+    pop()
+
+    linearGradient(circleX, circleY, blueT, whiteT, circleDiameter);
+    ellipse(circleX, circleY, circleDiameter, circleDiameter);
+
+    strokeWeight(0);
 
     conicGradient(0, circleX, circleY, [white, pink, blue, green])
     ellipse(circleX, circleY, circleDiameter, circleDiameter);
 
-    radialGradient(circleX, circleY, 0, circleDiameter/2, white, transparent, 0, 0);
+    radialGradient(circleX, circleY, 0, circleDiameter/2, blue, transparent, 0, 0);
+    ellipse(circleX, circleY, circleDiameter, circleDiameter);
+
+    radialGradient(circleX, circleY, 0, circleDiameter/4, white, transparent, -circleDiameter/6, -circleDiameter/4);
     ellipse(circleX, circleY, circleDiameter, circleDiameter);
 
     pop()
@@ -167,13 +189,29 @@ function drawLetter(letterData) {
     //drawingContext.strokeStyle = gradient;
   }
 
+  function conicGradientStroke(sA, centerX, centerY, colours){ //the center of the conical gradient will always be in the center of the circle
+    let gradient = drawingContext.createConicGradient(
+      sA, centerX, centerY
+      );
+    gradient.addColorStop(0, colours[2])
+    gradient.addColorStop(0.25, colours[3])
+    gradient.addColorStop(0.5, colours[1])
+    gradient.addColorStop(0.75, colours[0])
+    gradient.addColorStop(1, colours[2])
+  
+    drawingContext.strokeStyle = gradient;
+  }
+
   function conicGradientConnector(sA, centerX, centerY, colours){
     let gradient = drawingContext.createConicGradient(
       sA, centerX, centerY
       );
     gradient.addColorStop(0, colours[0])
-    gradient.addColorStop(0.33, colours[1])
-    gradient.addColorStop(0.67, colours[2])
+    gradient.addColorStop(0.2, colours[1])
+    gradient.addColorStop(0.4, colours[1])
+    gradient.addColorStop(0.5, colours[0])
+    gradient.addColorStop(0.65, colours[2])
+    gradient.addColorStop(0.75, colours[2])
     gradient.addColorStop(1, colours[0])
   
     drawingContext.fillStyle = gradient; 
@@ -214,7 +252,8 @@ function drawLetter(letterData) {
     translate(startx, starty); //correct rotation point
     rotate(angle) //change to angle variable once function working
     translate(-startx, -starty); //set back to normal
-    conicGradientConnector(0, startx+centerPoint, starty, [white, pink, blue])//base color fill
+    strokeWeight(0);
+    conicGradientConnector(0, startx+centerPoint, starty, [whiteST, blueST, pinkST])//base color fill
     beginShape();
       curveVertex(startx, starty);
       curveVertex(startx, starty);
@@ -271,6 +310,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["con2"] = map(percent, 0, 100, oldObj["con2"], newObj["con2"]);
   new_letter["con3"] = map(percent, 0, 100, oldObj["con3"], newObj["con3"]);
   new_letter["con4"] = map(percent, 0, 100, oldObj["con4"], newObj["con4"]);
+  new_letter["con5"] = map(percent, 0, 100, oldObj["con5"], newObj["con5"]);
+  new_letter["con6"] = map(percent, 0, 100, oldObj["con6"], newObj["con6"]);
   return new_letter;
 }
 
