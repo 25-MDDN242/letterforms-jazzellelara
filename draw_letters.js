@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#FFFFFC";
+var systemBackgroundColor = "#82c8e5";
 var systemLineColor = "#000090";
 var systemBoxColor = "#C73869";
 
@@ -12,9 +12,10 @@ var systemBoxColor = "#C73869";
  */
 
 //-------------------------------- Colours ----------------------------
-const darkGreen  = "#26b29d";
-const lightGreen  = "#30dfc4";
-const strokeColor  = "#0a2d27";
+const white  = "#ffffff";
+const transparent  = "#ffffff00";
+const pink  = "#ffaaee";
+const strokeColor  = "#000000";
 const red  = "#FFADAD";
 const yellow  = "#FDFFB6";
 const green  = "#CAFFBF";
@@ -27,12 +28,12 @@ const connectorColour = "#6796CD";
 //------------------------------ Main Function ----------------------------
 function drawLetter(letterData) {
   angleMode(DEGREES)
-
+  
   // setup stroke
   stroke(strokeColor);
-  strokeWeight(0.5);
+  strokeWeight(0);
 
-//------------------------------ Variable Setup ----------------------------
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Variable Setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   let c1size2 = letterData["c1size"]; // size of circle 1 (will either be 70px by 70px or 30px by 30px)
   let c1x2 = letterData["c1x"]; // x coordinates of circle 1
   let c1y2 = letterData["c1y"]; // y coordinates of circle 1
@@ -83,58 +84,108 @@ function drawLetter(letterData) {
     drawConnector(c2x2, c2y2, c5x2, c5y2);
   }
 
-  //------------ Small Circles ----------
-  fill(yellow);
-  ellipse(c2x2, c2y2, 30, 30);//circle 2
-  fill(green);
-  ellipse(c3x2, c3y2, 30, 30);//circle 3
-  fill(blue);
-  ellipse(c4x2, c4y2, 30, 30);//circle 4
-  fill(purple);
-  ellipse(c5x2, c5y2, 30, 30);//circle 5
+  //------------ Small Circles (Bubbles) ----------
+  drawBubble(c2x2, c2y2, 30);//circle 2
+  drawBubble(c3x2, c3y2, 30);//circle 3
+  drawBubble(c4x2, c4y2, 30);//circle 4
+  drawBubble(c5x2, c5y2, 30);//circle 5
 
-  //------------ Large/Small Circle ----------
+  //------------ Large/Small Circle (Bubbles) ----------
   //to debug design switch circle element to bottom layer
-  fill(red);
-  ellipse(c1x2, c1y2, c1size2, c1size2);//circle 1
+  drawBubble(c1x2, c1y2, c1size2);//circle 1
 
-  //------------------------------ TEST VALUES ----------------------------
-  //for when I am suspicious variables aren't working
-    // // large or small circle
-    // fill(red);
-    // ellipse(35, 150, 70, 70);//circle 1
-  
-    // // circle 2-3 connector 
-    // //fill(yellow);
-    // //drawConnector(c1x2, c1y2, c2x2, c2y2); 
-    // // circle 2-3 connector 
-    // fill(green);
-    // drawConnector(15, 15, 60, 30);
-    // // circle 3-4 connector 
-    // fill(blue);
-    // drawConnector(60, 30, 60, 70);
-    // // circle 4-5 connector 
-    // fill(purple);
-    // drawConnector(60, 70, 20, 100);
-  
-    // // small circles 
-    // fill(yellow);
-    // ellipse(15, 15, 30, 30);//circle 2
-    // fill(green);
-    // ellipse(60, 30, 30, 30);//circle 3
-    // fill(blue);
-    // ellipse(60, 70, 30, 30);//circle 4
-    // fill(purple);
-    // ellipse(20, 100, 30, 30);//circle 5
+  //------------------------ Original Coloured Variables for Debugging ------------------------
+  // //------------ Small Circles ----------
+  // fill(yellow);
+  // ellipse(c2x2, c2y2, 30, 30);//circle 2
+  // fill(green);
+  // ellipse(c3x2, c3y2, 30, 30);//circle 3
+  // fill(blue);
+  // ellipse(c4x2, c4y2, 30, 30);//circle 4
+  // fill(purple);
+  // ellipse(c5x2, c5y2, 30, 30);//circle 5
+
+  // //------------ Large/Small Circle ----------
+  // //to debug design switch circle element to bottom layer
+  // ellipse(c1x2, c1y2, c1size2, c1size2);//circle 1
 
 }
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Variable Setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  //------------------------------ Connector Function ----------------------------
-function drawConnector(startCircleX, startCircleY, endCircleX, endCircleY) { //draw a connector between circles
-  startx = startCircleX //15
-  starty = startCircleY //15
-  endx = endCircleX //55
-  endy = endCircleY //60
+  //------------------------ Draw Bubble Function ------------------------
+  function drawBubble(circleX, circleY, circleDiameter){
+    push()
+
+    // linearGradient(circleX, circleY, white, pink, circleDiameter);
+    // ellipse(circleX, circleY, circleDiameter, circleDiameter);
+
+    conicGradient(0, circleX, circleY, [white, pink, blue, green])
+    ellipse(circleX, circleY, circleDiameter, circleDiameter);
+
+    radialGradient(circleX, circleY, 0, circleDiameter/2, white, transparent, 0, 0);
+    ellipse(circleX, circleY, circleDiameter, circleDiameter);
+
+    pop()
+  }
+
+  //------------------------ Gradient Functions ------------------------
+  //linearGradient(c1x2, c1y2, white, pink, 70)
+  //radialGradient(c1x2, c1y2, 0, 40, pink, transparent, -15, -15)
+  //conicGradient(0, c1x2, c1y2, [white, pink, blue, green])
+
+  function linearGradient(sX, sY, colS, colE, circleDia){ //length is circle diameter
+    let gradient = drawingContext.createLinearGradient(
+      sX, sY, sX+circleDia, sY+circleDia
+      );
+    gradient.addColorStop(0, colS)
+    gradient.addColorStop(1, colE)
+  
+    drawingContext.fillStyle = gradient; 
+  }
+
+  function radialGradient(sX, sY, sRad, eRad, colS, colE, RCX, RCY){ //RC stands for Relative Coordinates, and dictates the radial gradient's center relative to the circle's center
+    let gradient = drawingContext.createRadialGradient(
+      sX+RCX, sY+RCY, sRad, sX+RCX, sY+RCY, eRad
+      );
+    gradient.addColorStop(0, colS)
+    gradient.addColorStop(1, colE)
+  
+    drawingContext.fillStyle = gradient; 
+  }
+
+  function conicGradient(sA, centerX, centerY, colours){ //the center of the conical gradient will always be in the center of the circle
+    let gradient = drawingContext.createConicGradient(
+      sA, centerX, centerY
+      );
+    gradient.addColorStop(0, colours[0])
+    gradient.addColorStop(0.25, colours[1])
+    gradient.addColorStop(0.5, colours[2])
+    gradient.addColorStop(0.75, colours[3])
+    gradient.addColorStop(1, colours[0])
+  
+    drawingContext.fillStyle = gradient; 
+    //drawingContext.strokeStyle = gradient;
+  }
+
+  function conicGradientConnector(sA, centerX, centerY, colours){
+    let gradient = drawingContext.createConicGradient(
+      sA, centerX, centerY
+      );
+    gradient.addColorStop(0, colours[0])
+    gradient.addColorStop(0.33, colours[1])
+    gradient.addColorStop(0.67, colours[2])
+    gradient.addColorStop(1, colours[0])
+  
+    drawingContext.fillStyle = gradient; 
+    //drawingContext.strokeStyle = gradient;
+  }
+
+  //------------------------ Connector Function ------------------------
+  function drawConnector(startCircleX, startCircleY, endCircleX, endCircleY) { //draw a connector between circles
+  startx = startCircleX
+  starty = startCircleY
+  endx = endCircleX
+  endy = endCircleY
 
   //------------ Calculate Greater and Lesser ----------
   // this is so that the hypotnuse function doesn't produce a negative value when starting from a greater coordinate
@@ -147,7 +198,10 @@ function drawConnector(startCircleX, startCircleY, endCircleX, endCircleY) { //d
   // this is for the length of the connector, so will be correct when I rotate it.
   let hypot = Math.hypot(greaterX-lesserX, greaterY-lesserY) //calculating hypotnuse WILL NOT WORK IN WITH NEGATIVE COORDS
 
-  // //------------ Calculate Angle ----------
+  //------------ Calculate Center Point of Connector ----------
+  let centerPoint = hypot / 2 
+
+  //------------ Calculate Angle ----------
   let deltaY = endy - starty;
   let deltaX = endx - startx;
   let angleInRadians = Math.atan2(deltaY, deltaX);
@@ -156,18 +210,33 @@ function drawConnector(startCircleX, startCircleY, endCircleX, endCircleY) { //d
     angle += 360; 
   }
 
-  //fill(connectorColour);
   push()
     translate(startx, starty); //correct rotation point
     rotate(angle) //change to angle variable once function working
     translate(-startx, -starty); //set back to normal
+    conicGradientConnector(0, startx+centerPoint, starty, [white, pink, blue])//base color fill
     beginShape();
       curveVertex(startx, starty);
       curveVertex(startx, starty);
       curveVertex(startx, starty-14); // 0+1 to hide connector edges
       curveVertex(startx + hypot/2,starty-7); // inbetween part
       curveVertex(startx + hypot, starty-14); // 0+1 to hide connector edges
-      curveVertex(startx + hypot, starty); // need to do trig
+      curveVertex(startx + hypot, starty);
+      curveVertex(startx + hypot, starty);
+      curveVertex(startx + hypot, starty+14); // 30-1 to hide connector edges
+      curveVertex(startx + hypot/2, starty+7); // inbetween part
+      curveVertex(startx, starty+14); // 30-1 to hide connector edges
+      curveVertex(startx, starty);
+      curveVertex(startx, starty);
+    endShape();
+    radialGradient(startx+centerPoint, starty, 0, 20, white, transparent, 0, 0);//top color fill
+    beginShape();
+      curveVertex(startx, starty);
+      curveVertex(startx, starty);
+      curveVertex(startx, starty-14); // 0+1 to hide connector edges
+      curveVertex(startx + hypot/2,starty-7); // inbetween part
+      curveVertex(startx + hypot, starty-14); // 0+1 to hide connector edges
+      curveVertex(startx + hypot, starty);
       curveVertex(startx + hypot, starty);
       curveVertex(startx + hypot, starty+14); // 30-1 to hide connector edges
       curveVertex(startx + hypot/2, starty+7); // inbetween part
@@ -178,7 +247,7 @@ function drawConnector(startCircleX, startCircleY, endCircleX, endCircleY) { //d
   pop()
 }
 
-
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Interpolations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["c1size"]    = map(percent, 0, 100, oldObj["c1size"], newObj["c1size"]);
