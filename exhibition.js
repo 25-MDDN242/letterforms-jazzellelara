@@ -228,7 +228,9 @@ function draw () {
       chosenCurAnimationFrame[i] = chosenCurAnimationFrame[i] + 1;
     }
     var obj = computeCurrentChosenChar(i);
-    drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 1.0, obj)
+    var bobbleVal = sin(frameCount-i*30) * 30; //to make more out of sync change 1st number - to change amount of bobble change 2nd number
+    let defaultY = o + h2/2.0 - 120;
+    drawFromDataObject(o + i*w2/8.0, defaultY+bobbleVal, 1.0, obj) 
   }
 }
 

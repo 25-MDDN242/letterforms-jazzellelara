@@ -16,7 +16,8 @@ const alphabet = {
     "con3": 1,
     "con4": 0,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
 
     // NOTE 1: For circle 1 to be in middle when 70px coordinates are 50/150. Other circles are 50/130
@@ -55,7 +56,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "B": {
     "c1size": 70,
@@ -74,7 +76,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "C": {
     "c1size": 30,
@@ -93,7 +96,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "D": {
     "c1size": 70,
@@ -112,7 +116,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "E": {
     "c1size": 30,
@@ -131,7 +136,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 1
+    "con6": 1,
+    "conT": 0 
   },
   "F": {
     "c1size": 30,
@@ -150,7 +156,8 @@ const alphabet = {
     "con3": 1,
     "con4": 0,
     "con5": 0,
-    "con6": 1
+    "con6": 1,
+    "conT": 0 
   },
   "G": {
     "c1size": 70,
@@ -169,7 +176,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "H": {
     "c1size": 30,
@@ -188,7 +196,8 @@ const alphabet = {
     "con3": 0,
     "con4": 1,
     "con5": 1,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "I": {
     "c1size": 30,
@@ -207,26 +216,28 @@ const alphabet = {
     "con3": 1,
     "con4": 0,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "J": {
     "c1size": 30,
     "c1x": 70,
-    "c1y": 80,
+    "c1y": 25,
     "c2x": 70,
-    "c2y": 135,
-    "c3x": 45,
-    "c3y": 170,
-    "c4x": 15,
-    "c4y": 135,
-    "c5x": 70,
-    "c5y": 25,
-    "con1": 1,
+    "c2y": 80,
+    "c3x": 70,
+    "c3y": 135,
+    "c4x": 45,
+    "c4y": 170,
+    "c5x": 15,
+    "c5y": 135,
+    "con1": 0,
     "con2": 1,
     "con3": 1,
-    "con4": 0,
+    "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "K": {
     "c1size": 30,
@@ -245,7 +256,8 @@ const alphabet = {
     "con3": 0,
     "con4": 0,
     "con5": 1,
-    "con6": 1
+    "con6": 1,
+    "conT": 0 
   },
   "L": {
     "c1size": 30,
@@ -264,7 +276,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "M": {
     "c1size": 30,
@@ -283,7 +296,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "N": {
     "c1size": 30,
@@ -302,7 +316,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "O": {
     "c1size": 85,
@@ -321,7 +336,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "P": {
     "c1size": 70,
@@ -340,7 +356,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "Q": {
     "c1size": 70,
@@ -359,7 +376,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "R": {
     "c1size": 30,
@@ -378,7 +396,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "S": {
     "c1size": 30,
@@ -397,7 +416,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "T": {
     "c1size": 30,
@@ -416,7 +436,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "U": {
     "c1size": 30,
@@ -435,7 +456,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "V": {
     "c1size": 30,
@@ -454,7 +476,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "W": {
     "c1size": 30,
@@ -473,7 +496,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "X": {
     "c1size": 30,
@@ -492,26 +516,28 @@ const alphabet = {
     "con3": 1,
     "con4": 0,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "Y": {
     "c1size": 30,
     "c1x": 70,
-    "c1y": 60,
+    "c1y": 80,
     "c2x": 70,
-    "c2y": 100,
+    "c2y": 120,
     "c3x": 30,
-    "c3y": 100,
+    "c3y": 120,
     "c4x": 30,
-    "c4y": 60,
+    "c4y": 80,
     "c5x": 30,
-    "c5y": 155,
+    "c5y": 170,
     "con1": 1,
     "con2": 1,
     "con3": 1,
     "con4": 0,
     "con5": 0,
-    "con6": 1
+    "con6": 1,
+    "conT": 0 
   },
   "Z": {
     "c1size": 30,
@@ -530,7 +556,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "0": {
     "c1size": 30,
@@ -549,7 +576,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "1": {
     "c1size": 30,
@@ -568,7 +596,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "2": {
     "c1size": 30,
@@ -587,7 +616,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "3": {
     "c1size": 30,
@@ -606,7 +636,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "4": {
     "c1size": 30,
@@ -625,7 +656,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "5": {
     "c1size": 30,
@@ -636,7 +668,7 @@ const alphabet = {
     "c3x": 25,
     "c3y": 80,
     "c4x": 75,
-    "c4y": 95,
+    "c4y": 105,
     "c5x": 25,
     "c5y": 135,
     "con1": 1,
@@ -644,7 +676,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "6": {
     "c1size": 70,
@@ -663,7 +696,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "7": {
     "c1size": 30,
@@ -682,7 +716,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   },
   "8": {
     "c1size": 70,
@@ -701,7 +736,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 1
+    "con6": 1,
+    "conT": 0 
   },
   "9": {
     "c1size": 70,
@@ -720,7 +756,8 @@ const alphabet = {
     "con3": 1,
     "con4": 1,
     "con5": 0,
-    "con6": 0
+    "con6": 0,
+    "conT": 0 
   }
 
 }

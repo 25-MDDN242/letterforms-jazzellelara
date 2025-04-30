@@ -57,37 +57,32 @@ function drawLetter(letterData) {
   let connector4 = letterData["con4"]; // toggle for connector 4 (c4-c5)
   let connector5 = letterData["con5"]; // toggle for connector 5 (c2-c4)
   let connector6 = letterData["con6"]; // toggle for connector 6 (c2-c5)
+  let connectorT = letterData["conT"]; // transparency for connectors
 
   //------------ Connectors ----------
   //Connector 1 - circle 1-2 
   if (connector1 > 0){ 
-    fill(yellow);
-    drawConnector(c1x2, c1y2, c2x2, c2y2); 
+    drawConnector(c1x2, c1y2, c2x2, c2y2, connectorT); 
   }
   // Connector 2 - circle 2-3  
   if (connector2 > 0){ 
-    fill(green);
-    drawConnector(c2x2, c2y2, c3x2, c3y2);
+    drawConnector(c2x2, c2y2, c3x2, c3y2, connectorT);
   }
   // Connector 3 - circle 3-4  
   if (connector3 > 0){ 
-    fill(blue);
-    drawConnector(c3x2, c3y2, c4x2, c4y2);
+    drawConnector(c3x2, c3y2, c4x2, c4y2, connectorT);
   }
   // Connector 4 - circle 4-5  
   if (connector4 > 0){ 
-    fill(purple);
-    drawConnector(c4x2, c4y2, c5x2, c5y2);
+    drawConnector(c4x2, c4y2, c5x2, c5y2, connectorT);
   }
   // Connector 5 - circle 2-4  
   if (connector5 > 0){ 
-    fill(purple);
-    drawConnector(c2x2, c2y2, c4x2, c4y2);
+    drawConnector(c2x2, c2y2, c4x2, c4y2, connectorT);
   }
   // Connector 6 - circle 2-5  
   if (connector6 > 0){ 
-    fill(purple);
-    drawConnector(c2x2, c2y2, c5x2, c5y2);
+    drawConnector(c2x2, c2y2, c5x2, c5y2, connectorT);
   }
 
   //------------ Small Circles (Bubbles) ----------
@@ -219,11 +214,12 @@ function drawLetter(letterData) {
   }
 
   //------------------------ Connector Function ------------------------
-  function drawConnector(startCircleX, startCircleY, endCircleX, endCircleY) { //draw a connector between circles
+  function drawConnector(startCircleX, startCircleY, endCircleX, endCircleY, coverTransparency) { //draw a connector between circles
   startx = startCircleX
   starty = startCircleY
   endx = endCircleX
   endy = endCircleY
+  coverT = coverTransparency
 
   //------------ Calculate Greater and Lesser ----------
   // this is so that the hypotnuse function doesn't produce a negative value when starting from a greater coordinate
@@ -283,12 +279,28 @@ function drawLetter(letterData) {
       curveVertex(startx, starty);
       curveVertex(startx, starty);
     endShape();
+    fill(199, 233, 255, coverT) //to hide connectors when transitioning 
+    beginShape();
+    curveVertex(startx, starty);
+    curveVertex(startx, starty);
+    curveVertex(startx, starty-14); // 0+1 to hide connector edges
+    curveVertex(startx + hypot/2,starty-7); // inbetween part
+    curveVertex(startx + hypot, starty-14); // 0+1 to hide connector edges
+    curveVertex(startx + hypot, starty);
+    curveVertex(startx + hypot, starty);
+    curveVertex(startx + hypot, starty+14); // 30-1 to hide connector edges
+    curveVertex(startx + hypot/2, starty+7); // inbetween part
+    curveVertex(startx, starty+14); // 30-1 to hide connector edges
+    curveVertex(startx, starty);
+    curveVertex(startx, starty);
+  endShape();
   pop()
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Interpolations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+
   new_letter["c1size"]    = map(percent, 0, 100, oldObj["c1size"], newObj["c1size"]);
 
   new_letter["c1x"] = map(percent, 0, 100, oldObj["c1x"], newObj["c1x"]);
@@ -306,12 +318,45 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["c5x"] = map(percent, 0, 100, oldObj["c5x"], newObj["c5x"]);
   new_letter["c5y"] = map(percent, 0, 100, oldObj["c5y"], newObj["c5y"]);
 
-  new_letter["con1"] = map(percent, 0, 100, oldObj["con1"], newObj["con1"]);
-  new_letter["con2"] = map(percent, 0, 100, oldObj["con2"], newObj["con2"]);
-  new_letter["con3"] = map(percent, 0, 100, oldObj["con3"], newObj["con3"]);
-  new_letter["con4"] = map(percent, 0, 100, oldObj["con4"], newObj["con4"]);
-  new_letter["con5"] = map(percent, 0, 100, oldObj["con5"], newObj["con5"]);
-  new_letter["con6"] = map(percent, 0, 100, oldObj["con6"], newObj["con6"]);
+  new_letter["con1"] = map(percent, 45, 55, oldObj["con1"], newObj["con1"]);
+  new_letter["con2"] = map(percent, 45, 55, oldObj["con2"], newObj["con2"]);
+  new_letter["con3"] = map(percent, 45, 55, oldObj["con3"], newObj["con3"]);
+  new_letter["con4"] = map(percent, 45, 55, oldObj["con4"], newObj["con4"]);
+  new_letter["con5"] = map(percent, 45, 55, oldObj["con5"], newObj["con5"]);
+  new_letter["con6"] = map(percent, 45, 55, oldObj["con6"], newObj["con6"]);
+
+  // new_letter["con1"] = newObj["con1"];
+  // new_letter["con2"] = newObj["con2"];
+  // new_letter["con3"] = newObj["con3"];
+  // new_letter["con4"] = newObj["con4"];
+  // new_letter["con5"] = newObj["con5"];
+  // new_letter["con6"] = newObj["con6"];
+
+  //new_letter["conT"] = map(percent, 0, 100, 0, oldObj["conT"], newObj["conT"]);//?????????
+
+  let fadeOutBy = 40; //20 value gap left between fade in and fade out for connectors to switch positions, ensures smooth visuals
+  let fadeInStart = 60;
+
+  if(percent < fadeOutBy){
+    new_letter["conT"] = map(percent, 0, fadeOutBy, 0, 255);
+  }
+  else if(percent > fadeInStart){
+    new_letter["conT"] = map(percent, fadeInStart, 100, 255,0);
+  }
+  else{
+    new_letter["conT"] = 255;
+  }
+
+  let smallBy = 50;
+
+  if(percent < smallBy){
+    new_letter["c1size"] = map(percent, 0, smallBy, oldObj["c1size"], 30);
+  }
+  else {
+    new_letter["c1size"] = map(percent, smallBy, 100, 30, newObj["c1size"]);
+  }
+
+
   return new_letter;
 }
 

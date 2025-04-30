@@ -21,7 +21,8 @@ const sliderInfo = [
   ["con3", 0, 1],
   ["con4", 0, 1],
   ["con5", 0, 1],
-  ["con6", 0, 1]
+  ["con6", 0, 1],
+  ["conT", 0, 255]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
