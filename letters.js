@@ -20,18 +20,7 @@ const alphabet = {
     "conT": 0 
   },
 
-    // NOTE 1: For circle 1 to be in middle when 70px coordinates are 50/150. Other circles are 50/130
-
-    // NOTE 2: When translating coordinates over, add 35 to each for large circle and 15 to each for small
-
-    //NOTE 3:  Circle Reference
-    //Circle 1 - Red
-    //Circle 2 - Yellow
-    //Circle 3 - Green
-    //Circle 4 - Blue
-    //Circle 5 - Purple
-
-    //NOTE 4:  Connector Reference
+    //--Connector Reference--
     //Connector 1 - C1-C2
     //Connector 2 - C2-C3
     //Connector 3 - C3-C4
@@ -343,13 +332,13 @@ const alphabet = {
     "c1size": 70,
     "c1x": 50,
     "c1y": 80,
-    "c2x": 60,
+    "c2x": 40,
     "c2y": 95,
-    "c3x": 70,
+    "c3x": 30,
     "c3y": 130,
-    "c4x": 70,
+    "c4x": 30,
     "c4y": 170,
-    "c5x": 70,
+    "c5x": 30,
     "c5y": 170,
     "con1": 1,
     "con2": 1,

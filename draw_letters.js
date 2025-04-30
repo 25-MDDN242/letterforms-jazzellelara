@@ -25,6 +25,7 @@ const connectorColour = "#6796CD";
 const whiteST  = "#ffffff95"; //ST stands for semi transparent
 const pinkST  = "#ffc7f395";
 const blueST  = "#CCE7F795";
+const greenST  = "#c7ffeb95";
 
 const whiteT  = "#ffffff50"; //T stands for transparent
 const pinkT  = "#ffc7f350";
@@ -95,21 +96,6 @@ function drawLetter(letterData) {
   //to debug design switch circle element to bottom layer
   drawBubble(c1x2, c1y2, c1size2);//circle 1
 
-  //------------------------ Original Coloured Variables for Debugging ------------------------
-  // //------------ Small Circles ----------
-  // fill(yellow);
-  // ellipse(c2x2, c2y2, 30, 30);//circle 2
-  // fill(green);
-  // ellipse(c3x2, c3y2, 30, 30);//circle 3
-  // fill(blue);
-  // ellipse(c4x2, c4y2, 30, 30);//circle 4
-  // fill(purple);
-  // ellipse(c5x2, c5y2, 30, 30);//circle 5
-
-  // //------------ Large/Small Circle ----------
-  // //to debug design switch circle element to bottom layer
-  // ellipse(c1x2, c1y2, c1size2, c1size2);//circle 1
-
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Variable Setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -146,9 +132,8 @@ function drawLetter(letterData) {
   }
 
   //------------------------ Gradient Functions ------------------------
-  //linearGradient(c1x2, c1y2, white, pink, 70)
-  //radialGradient(c1x2, c1y2, 0, 40, pink, transparent, -15, -15)
-  //conicGradient(0, c1x2, c1y2, [white, pink, blue, green])
+  //Gradient Functions Source: (Kazuki Umeda, 2021)
+  //see full sources in ReadMe
 
   function linearGradient(sX, sY, colS, colE, circleDia){ //length is circle diameter
     let gradient = drawingContext.createLinearGradient(
@@ -202,15 +187,14 @@ function drawLetter(letterData) {
       sA, centerX, centerY
       );
     gradient.addColorStop(0, colours[0])
-    gradient.addColorStop(0.2, colours[1])
-    gradient.addColorStop(0.4, colours[1])
+    gradient.addColorStop(0.10, colours[1])
+    gradient.addColorStop(0.40, colours[1])
     gradient.addColorStop(0.5, colours[0])
-    gradient.addColorStop(0.65, colours[2])
-    gradient.addColorStop(0.75, colours[2])
+    gradient.addColorStop(0.60, colours[2])
+    gradient.addColorStop(0.90, colours[2])
     gradient.addColorStop(1, colours[0])
   
     drawingContext.fillStyle = gradient; 
-    //drawingContext.strokeStyle = gradient;
   }
 
   //------------------------ Connector Function ------------------------
@@ -236,6 +220,8 @@ function drawLetter(letterData) {
   let centerPoint = hypot / 2 
 
   //------------ Calculate Angle ----------
+  //Calculate Angle code Source: (Snow, 2013)
+  //see full sources in ReadMe
   let deltaY = endy - starty;
   let deltaX = endx - startx;
   let angleInRadians = Math.atan2(deltaY, deltaX);
@@ -249,7 +235,7 @@ function drawLetter(letterData) {
     rotate(angle) //change to angle variable once function working
     translate(-startx, -starty); //set back to normal
     strokeWeight(0);
-    conicGradientConnector(0, startx+centerPoint, starty, [whiteST, blueST, pinkST])//base color fill
+    conicGradientConnector(0, startx+centerPoint, starty, [whiteST, greenST, pinkST])//base color fill
     beginShape();
       curveVertex(startx, starty);
       curveVertex(startx, starty);
@@ -264,7 +250,22 @@ function drawLetter(letterData) {
       curveVertex(startx, starty);
       curveVertex(startx, starty);
     endShape();
-    radialGradient(startx+centerPoint, starty, 0, 20, white, transparent, 0, 0);//top color fill
+    radialGradient(startx+centerPoint, starty, 0, 20, blue, transparent, 0, 0);//top color fill
+    beginShape();
+      curveVertex(startx, starty);
+      curveVertex(startx, starty);
+      curveVertex(startx, starty-14); // 0+1 to hide connector edges
+      curveVertex(startx + hypot/2,starty-7); // inbetween part
+      curveVertex(startx + hypot, starty-14); // 0+1 to hide connector edges
+      curveVertex(startx + hypot, starty);
+      curveVertex(startx + hypot, starty);
+      curveVertex(startx + hypot, starty+14); // 30-1 to hide connector edges
+      curveVertex(startx + hypot/2, starty+7); // inbetween part
+      curveVertex(startx, starty+14); // 30-1 to hide connector edges
+      curveVertex(startx, starty);
+      curveVertex(startx, starty);
+    endShape();
+    radialGradient(startx+centerPoint, starty, 0, 15, white, transparent, 0, 0);//top color fill
     beginShape();
       curveVertex(startx, starty);
       curveVertex(startx, starty);
@@ -324,15 +325,6 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["con4"] = map(percent, 45, 55, oldObj["con4"], newObj["con4"]);
   new_letter["con5"] = map(percent, 45, 55, oldObj["con5"], newObj["con5"]);
   new_letter["con6"] = map(percent, 45, 55, oldObj["con6"], newObj["con6"]);
-
-  // new_letter["con1"] = newObj["con1"];
-  // new_letter["con2"] = newObj["con2"];
-  // new_letter["con3"] = newObj["con3"];
-  // new_letter["con4"] = newObj["con4"];
-  // new_letter["con5"] = newObj["con5"];
-  // new_letter["con6"] = newObj["con6"];
-
-  //new_letter["conT"] = map(percent, 0, 100, 0, oldObj["conT"], newObj["conT"]);//?????????
 
   let fadeOutBy = 40; //20 value gap left between fade in and fade out for connectors to switch positions, ensures smooth visuals
   let fadeInStart = 60;

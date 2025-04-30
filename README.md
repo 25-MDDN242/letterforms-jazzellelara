@@ -3,7 +3,7 @@
 
 ### MDDN 242 Project 2: Parametric Designs - Letterforms
 ### Jazzelle Richdale
-# Project Title
+# Bubbles!
 
 ### Design Intentions
 Section Body
@@ -22,3 +22,12 @@ Insert initial sketch image here
 
 #### *Section Title*
 Section Body
+
+
+---
+#### *Sources*
+Snow, J. (2013, May 2). Java: Calculating the angle between two points in degrees. [Online forum post]. Stack Overflow. https://stackoverflow.com/questions/9970281/java-calculating-the-angle-between-two-points-in-degrees 
+
+Kazuki Umeda. (2021, December 23). Easiest Gradient Effect - p5.js tutorial [Video]. YouTube. https://www.youtube.com/watch?v=-MUOweQ6wac 
+
+Cottier, N. (n.d.). Untitled Letterform. https://the-brandidentity.com/interview/nigel-cottier-details-how-he-created-19-840-letterforms-with-one-simple-grid-based-framework 
