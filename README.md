@@ -22,6 +22,7 @@ Insert letterform study image here
 I first started by exploring what kind of connectors I wanted between circles, and settled on having one with a set width but differing length. I then limited myself to 5 circles per letter, with one circle changing in size. 
 
 Insert initial sketch image here
+![initial sketch](https://github.com/25-MDDN242/letterforms-jazzellelara/blob/main/initialSketch.jpeg "sketch")
 
 #### *Section Title*
 Section Body
