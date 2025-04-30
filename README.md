@@ -13,7 +13,7 @@ I started the project by looking on Pinterest for type inspiration, and found a 
 
 Insert letterform study image here
 
-![LetterformStudy](https://github.com/25-MDDN242/letterforms-jazzellelara/blob/main/letterformStudy.jp "study")
+![LetterformStudy](https://github.com/25-MDDN242/letterforms-jazzellelara/blob/main/letterformStudy.jpg "study")
 
 
 ### Design Process
