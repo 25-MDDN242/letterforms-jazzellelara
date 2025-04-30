@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
 var systemBackgroundColor = "#c7eaff";
-var systemLineColor = "#000090";
-var systemBoxColor = "#C73869";
+var systemLineColor = "#4055AB";
+var systemBoxColor = "#f299dd";
 
 /*
  * Draw the letter given the letterData
@@ -361,7 +361,13 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "BUBBLES!",
+  "ETHEREAL",
+  "LUSTROUS",
+  "NACREOUS",
+  "OPALESCE",
+  "LUMINOUS",
+  "SHIMMERS",
+  "VITREOUS",
+  "RAINBOWS",
 ]

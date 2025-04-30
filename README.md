@@ -17,7 +17,8 @@ Insert letterform study image here
 
 #### *Initial Ideas*
 I first started by exploring what kind of connectors I wanted between circles, and settled on having one with a set width but differing length. I then limited myself to 5 circles per letter, with one circle changing in size. 
-Inert initial sketch image here
+
+Insert initial sketch image here
 
 #### *Section Title*
 Section Body
