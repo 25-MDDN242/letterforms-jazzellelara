@@ -60,7 +60,7 @@ const letterC = {
   "hidelineendy": 100
 }
 
-const backgroundColor  = "#ffffff";
+const backgroundColor  = "#c7eaff";
 
 const darkGreen  = "#386641";
 const lightGreen  = "#6A994E";

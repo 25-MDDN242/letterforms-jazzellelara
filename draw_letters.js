@@ -133,6 +133,7 @@ function drawLetter(letterData) {
 
   //------------------------ Gradient Functions ------------------------
   //Gradient Functions Source: (Kazuki Umeda, 2021)
+  //Source altered to fit my code
   //see full sources in ReadMe
 
   function linearGradient(sX, sY, colS, colE, circleDia){ //length is circle diameter
@@ -221,6 +222,7 @@ function drawLetter(letterData) {
 
   //------------ Calculate Angle ----------
   //Calculate Angle code Source: (Snow, 2013)
+  //Source is unaltered 
   //see full sources in ReadMe
   let deltaY = endy - starty;
   let deltaX = endx - startx;
@@ -230,57 +232,8 @@ function drawLetter(letterData) {
     angle += 360; 
   }
 
-  push()
-    translate(startx, starty); //correct rotation point
-    rotate(angle) //change to angle variable once function working
-    translate(-startx, -starty); //set back to normal
-    strokeWeight(0);
-    conicGradientConnector(0, startx+centerPoint, starty, [whiteST, greenST, pinkST])//base color fill
-    beginShape();
-      curveVertex(startx, starty);
-      curveVertex(startx, starty);
-      curveVertex(startx, starty-14); // 0+1 to hide connector edges
-      curveVertex(startx + hypot/2,starty-7); // inbetween part
-      curveVertex(startx + hypot, starty-14); // 0+1 to hide connector edges
-      curveVertex(startx + hypot, starty);
-      curveVertex(startx + hypot, starty);
-      curveVertex(startx + hypot, starty+14); // 30-1 to hide connector edges
-      curveVertex(startx + hypot/2, starty+7); // inbetween part
-      curveVertex(startx, starty+14); // 30-1 to hide connector edges
-      curveVertex(startx, starty);
-      curveVertex(startx, starty);
-    endShape();
-    radialGradient(startx+centerPoint, starty, 0, 20, blue, transparent, 0, 0);//top color fill
-    beginShape();
-      curveVertex(startx, starty);
-      curveVertex(startx, starty);
-      curveVertex(startx, starty-14); // 0+1 to hide connector edges
-      curveVertex(startx + hypot/2,starty-7); // inbetween part
-      curveVertex(startx + hypot, starty-14); // 0+1 to hide connector edges
-      curveVertex(startx + hypot, starty);
-      curveVertex(startx + hypot, starty);
-      curveVertex(startx + hypot, starty+14); // 30-1 to hide connector edges
-      curveVertex(startx + hypot/2, starty+7); // inbetween part
-      curveVertex(startx, starty+14); // 30-1 to hide connector edges
-      curveVertex(startx, starty);
-      curveVertex(startx, starty);
-    endShape();
-    radialGradient(startx+centerPoint, starty, 0, 15, white, transparent, 0, 0);//top color fill
-    beginShape();
-      curveVertex(startx, starty);
-      curveVertex(startx, starty);
-      curveVertex(startx, starty-14); // 0+1 to hide connector edges
-      curveVertex(startx + hypot/2,starty-7); // inbetween part
-      curveVertex(startx + hypot, starty-14); // 0+1 to hide connector edges
-      curveVertex(startx + hypot, starty);
-      curveVertex(startx + hypot, starty);
-      curveVertex(startx + hypot, starty+14); // 30-1 to hide connector edges
-      curveVertex(startx + hypot/2, starty+7); // inbetween part
-      curveVertex(startx, starty+14); // 30-1 to hide connector edges
-      curveVertex(startx, starty);
-      curveVertex(startx, starty);
-    endShape();
-    fill(199, 233, 255, coverT) //to hide connectors when transitioning 
+  //------------ Draw Connector Shape ----------
+  function drawConnectorLayer(startx, starty, hypot){
     beginShape();
     curveVertex(startx, starty);
     curveVertex(startx, starty);
@@ -294,7 +247,26 @@ function drawLetter(letterData) {
     curveVertex(startx, starty+14); // 30-1 to hide connector edges
     curveVertex(startx, starty);
     curveVertex(startx, starty);
-  endShape();
+    endShape();
+  }
+
+  push()
+    translate(startx, starty); //correct rotation point
+    rotate(angle) //change to angle variable once function working
+    translate(-startx, -starty); //set back to normal
+    strokeWeight(0);
+
+    conicGradientConnector(0, startx+centerPoint, starty, [whiteST, greenST, pinkST])//base color fill
+    drawConnectorLayer(startx, starty, hypot)
+
+    radialGradient(startx+centerPoint, starty, 0, 20, blue, transparent, 0, 0);//top color fill
+    drawConnectorLayer(startx, starty, hypot)
+
+    radialGradient(startx+centerPoint, starty, 0, 15, white, transparent, 0, 0);//top color fill
+    drawConnectorLayer(startx, starty, hypot)
+
+    fill(199, 233, 255, coverT) //to hide connectors when transitioning 
+    drawConnectorLayer(startx, starty, hypot)
   pop()
 }
 
@@ -362,4 +334,5 @@ var swapWords = [
   "SHIMMERS",
   "VITREOUS",
   "RAINBOWS",
+  "12345678"
 ]

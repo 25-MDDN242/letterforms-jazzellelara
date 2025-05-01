@@ -16,12 +16,14 @@
             max-height: fit-content;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 30;
+            margin-top: 0;
+        }
+        body {
+            overflow-y: hidden
         }
         h2 {
             color: #4055AB;
             text-align: center;
-            padding-top: 15;
             font-family: "Quicksand", sans-serif;
             font-weight: 700;
         }
@@ -47,9 +49,44 @@
             color: #4055AB;
         }
         a:hover {
-            color: #f299dd;
+                color: #f299dd;
+            }
+        .outer { 
+            margin-top: 12vh;
+        }
+        .overlay { 
+            position: fixed; 
+            z-index: 20; 
+            top: 0; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+        }
+        .overlayTop { 
+            background-image: linear-gradient(to top,#ffffff00, #ffffff);
+            max-width: 100vw;
+            max-height: 15vh;
+        }
+        .overlayBottom { 
+            background-image: linear-gradient(to bottom,#ffffff00, #ffffff);
+            max-width: 100vw;
+            max-height: 15vh;
+            top: 85vh; 
+        }
+        .overlayLeft { 
+            background-image: linear-gradient(to left,#ffffff00, #ffffff);
+            max-width: 8vw;
+            max-height: 100vh;
+            right: 92vw; 
+        }
+        .overlayRight { 
+            background-image: linear-gradient(to right,#ffffff00, #ffffff);
+            max-width: 8vw;
+            max-height: 100vh;
+            left: 92vw; 
         }
     </style>
+
 </head>
 <body style="background-color:#c7eaff">
     <div class="outer">
@@ -67,4 +104,8 @@
     <li><a href="interaction.html">interaction</a>
     <li><a href="index.html">exhibition</a>
 <ul>
+<div class="overlay overlayTop"></div>
+<div class="overlay overlayBottom"></div>
+<div class="overlay overlayLeft"></div>
+<div class="overlay overlayRight"></div>
 </body>
