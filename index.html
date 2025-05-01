@@ -6,33 +6,115 @@
     <script language="javascript" type="text/javascript" src="draw_letters.js"></script>
     <script language="javascript" type="text/javascript" src="exhibition.js"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
   <meta
     name="Letterforms by UWCC"
     content="Code driven letterforms."
   />
-  <meta name="description" content="Code driven letterforms" />
-  <meta property="og:title" content="Letterforms by UWCC" />
+  <meta name="description" content="Bubbles! by Jazzelle Richdale" />
+  <meta property="og:title" content="Bubbles! by Jazzelle Richdale" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://uwcc.github.io/23.MDDN242_Parametric_Design/" />
-  <meta property="og:image" content="https://uwcc.github.io/23.MDDN242_Parametric_Design/preview.jpg" />
+  <meta property="og:url" content="https://25-mddn242.github.io/letterforms-jazzellelara/" />
+  <meta property="og:image" content="https://25-mddn242.github.io/letterforms-jazzellelara/preview.jpg" />
   <meta property="og:image:width" content="960" />
   <meta property="og:image:height" content="500" />
   <meta property="og:description" content="Code driven letterforms" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@uwcc" />
-  <meta name="twitter:title" content="Letterforms by UWCC" />
-  <meta name="twitter:description" content="Code driven letterforms" />
-  <meta name="twitter:image" content="https://uwcc.github.io/23.MDDN242_Parametric_Design/preview.jpg" />
+  <meta name="twitter:creator" content="@-" />
+  <meta name="twitter:title" content="Bubbles! by Jazzelle Richdale" />
+  <meta name="twitter:description" content="Bubbles! by Jazzelle Richdale" />
+  <meta name="twitter:image" content="https://25-mddn242.github.io/letterforms-jazzellelara/preview.jpg" />
 
+  <style type="text/css">
+        div {
+            max-width: fit-content;
+            max-height: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0;
+        }
+        body {
+            overflow-y: hidden
+        }
+        h2 {
+            color: #4055AB;
+            text-align: center;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 700;
+        }
+        ul {
+            list-style-type: none;
+            text-align: center;
+            padding-inline-start: 0px;        
+        }
+        li
+        {
+            display:inline;
+            padding:0px 10px;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 500;
+        }
+        a:link {
+            color: #4055AB;
+        }
+        a:visited {
+            color: #4055AB;
+        }
+        a:active {
+            color: #4055AB;
+        }
+        a:hover {
+                color: #f299dd;
+            }
+        .outer { 
+            margin-top: 12vh;
+        }
+        .overlay { 
+            position: fixed; 
+            z-index: 20; 
+            top: 0; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+        }
+        .overlayTop { 
+            background-image: linear-gradient(to top,#ffffff00, #ffffff);
+            max-width: 100vw;
+            max-height: 15vh;
+        }
+        .overlayBottom { 
+            background-image: linear-gradient(to bottom,#ffffff00, #ffffff);
+            max-width: 100vw;
+            max-height: 15vh;
+            top: 85vh; 
+        }
+        .overlayLeft { 
+            background-image: linear-gradient(to left,#ffffff00, #ffffff);
+            max-width: 8vw;
+            max-height: 100vh;
+            right: 92vw; 
+        }
+        .overlayRight { 
+            background-image: linear-gradient(to right,#ffffff00, #ffffff);
+            max-width: 8vw;
+            max-height: 100vh;
+            left: 92vw; 
+        }
+    </style>
 </head>
-<body style="background-color:white">
+
+<body style="background-color:#c7eaff">
     <div class="outer">
         <div class="inner">
             <div id="canvasContainer"></div>
         </div>
     </div>
-<p>
+<h2>
     Links to other sections:
+</h2>
 <ul>
     <li><a href="sketch.html">sketch</a>
     <li><a href="alphabet.html">alphabet</a>
@@ -40,4 +122,8 @@
     <li><a href="interaction.html">interaction</a>
     <li><a href="index.html">exhibition</a>
 <ul>
+<div class="overlay overlayTop"></div>
+<div class="overlay overlayBottom"></div>
+<div class="overlay overlayLeft"></div>
+<div class="overlay overlayRight"></div>
 </body>
